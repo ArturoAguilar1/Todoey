@@ -32,11 +32,18 @@
                             <outlet property="delegate" destination="DeI-T5-WJQ" id="7mX-aF-JRt"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Todoey" id="aE8-xw-S7O" colorLabel="IBBuiltInLabel-Blue"/>
+                    <navigationItem key="navigationItem" title="Todoey" id="aE8-xw-S7O" colorLabel="IBBuiltInLabel-Blue">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="iOk-8Y-sua" customClass="UIBarButton">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addButtonPressed:" destination="DeI-T5-WJQ" id="ERj-Oe-Ss1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ADx-MA-sid" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="977" y="40"/>
+            <point key="canvasLocation" x="125" y="3"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NcA-jW-qWY">
@@ -48,7 +55,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.16078431369999999" green="0.41425744530000003" blue="0.51845894609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.47413461880000002" green="0.84298360350000001" blue="0.78437247050000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -57,7 +64,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wjr-z9-kmT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="121.73913043478262" y="39.508928571428569"/>
+            <point key="canvasLocation" x="-759" y="3"/>
         </scene>
     </scenes>
 </document>

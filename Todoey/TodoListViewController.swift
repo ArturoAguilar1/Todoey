@@ -10,11 +10,20 @@ import UIKit
 
 class TodoListViewController: UITableViewController {
     
-    let itemArray = ["Finde Mike","Buy Eggos", "Destroy Demogorgon"]
+    var itemArray = ["Finde Mike","Buy Eggos", "Destroy Demogorgon"]
+    
+    let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        //Initially we update de array items to the items were been saved it in memory
+        //We put that list as! array of strings
+        // If the array doesn't exist, this crash, so we need to prevent that adding a if statement
+        if let items = defaults.array(forKey: "TodoListArray") as? [String]{
+            itemArray = items
+        }
     }
     
     
@@ -51,5 +60,33 @@ class TodoListViewController: UITableViewController {
         }
 
     }
+    
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+        
+        var textField = UITextField()
+        
+        let alert = UIAlertController(title: "Add new Todoey item", message: "", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
+            // when the users taps the ui alert, what should happend
+            self.itemArray.append(textField.text!)
+            
+            self.defaults.set(self.itemArray,forKey: "TodoListArray")
+            
+            self.tableView.reloadData()
+            
+        }
+        
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "Create a new item"
+            textField = alertTextField
+        }
+                
+        alert.addAction(action)
+        
+        present(alert,animated: true, completion: nil)
+        
+    }
+    
 }
 
